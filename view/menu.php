@@ -49,7 +49,7 @@ if ($_SESSION['owner_id'] == null) {
     if ($_SESSION['role'] == 'USER') {
         ?>
 
-        <td><a href="../view/add_cat.php">Register Cat</a></td>
+        <td><a href="add_cat.php">Register Cat</a></td>
         <td><a href="../controller/cat_controller.php?action=manage">Menage Cat</a></td>
         <td><a href="../controller/tourniment_controller.php?action=view">View Tournaments</a></td>
         <td><a href="../controller/logout.php">Log out</a></td>
@@ -58,8 +58,8 @@ if ($_SESSION['owner_id'] == null) {
     } else if ($_SESSION['role'] == 'ADMIN') {
         ?>
         <tr>
-            <td><a href="../view/add_cat_owner.php">Register cat owner</a></td>
-            <td><a href="../view/add_tournament.php">Create Tournament</a></td>
+            <td><a href="add_cat_owner.php">Register cat owner</a></td>
+            <td><a href="add_tournament.php">Create Tournament</a></td>
             <td><a href="../controller/tourniment_controller.php?action=manage">Manage Tournament</a></td>
             <td><a href="../controller/cat_owner_controller.php?action=manage">Manage Owners</a></td>
             <td><a href="../controller/logout.php">Log out</a></td>
