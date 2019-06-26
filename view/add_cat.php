@@ -18,7 +18,7 @@ if ($_SESSION['owner_id'] == null) {
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Name..">
 
-        <label for="phone">Phone</label>
+        <label for="age">Age</label>
         <input type="text" id="age" name="age" placeholder="Age..">
 
         <label for="phone">Cat model</label>
