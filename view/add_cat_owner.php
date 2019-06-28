@@ -24,10 +24,10 @@ if ($_SESSION['owner_id'] == null) {
         <label for="phone">Personal Code</label>
         <input type="text" id="personal_code" name="personal_code" placeholder="Personal Code..">
 
-        <label for="phone">Username</label>
+        <label for="username">Username</label>
         <input type="text" id="username" name="username" placeholder="Username..">
 
-        <label for="phone">Password</label>
+        <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Password..">
 
 
@@ -38,7 +38,7 @@ if ($_SESSION['owner_id'] == null) {
                     <option value="usa">USA</option>
                 </select>
         -->
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit"
     </form>
 </div>
 

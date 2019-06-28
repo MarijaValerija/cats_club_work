@@ -15,9 +15,9 @@ class TournamentModel
     public function addTournament($name, $description)
     {
         $conn = CatsDatabaseConnectionManager::getConnection();
-        $stmt = $conn->prepare(ADD_TOURNIMENT);
-        $stmt->bind_param("ss", $name, $description);
-        $stmt->execute();
+        $stmt = $conn->prepare(ADD_TOURNIMENT);//Подготавливает запрос к выполнению и возвращает связанный с этим запросом объект
+        $stmt->bind_param("ss", $name, $description);// Привязка переменных к параметрам подготавливаемого запроса
+        $stmt->execute();//Запускает подготовленный запрос на выполнение
         $boolResult = $stmt->get_result();
         $stmt->close();
         $conn->close();
@@ -27,9 +27,9 @@ class TournamentModel
     public function deleteTournament($id)
     {
         $conn = CatsDatabaseConnectionManager::getConnection();
-        $stmt = $conn->prepare(DELETE_TOURNIMENT_BY_ID);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
+        $stmt = $conn->prepare(DELETE_TOURNIMENT_BY_ID);//Подготавливает запрос к выполнению и возвращает связанный с этим запросом объект
+        $stmt->bind_param("i", $id);// Привязка переменных к параметрам подготавливаемого запроса
+        $stmt->execute();//Запускает подготовленный запрос на выполнение
         $boolResult = $stmt->get_result();
         $stmt->close();
         $conn->close();
@@ -39,8 +39,8 @@ class TournamentModel
     public function getAllTournaments()
     {
         $conn = CatsDatabaseConnectionManager::getConnection();
-        $stmt = $conn->prepare(GET_ALL_TOURNIMENT);
-        $stmt->execute();
+        $stmt = $conn->prepare(GET_ALL_TOURNIMENT);//Подготавливает запрос к выполнению и возвращает связанный с этим запросом объектa
+        $stmt->execute();//Запускает подготовленный запрос на выполнение
         $result = CatsDatabaseConnectionManager::createArrayFromDBresultObject($stmt->get_result());
         $stmt->close();
         $conn->close();
@@ -51,8 +51,8 @@ class TournamentModel
     {
         $conn = CatsDatabaseConnectionManager::getConnection();
         $stmt = $conn->prepare(GET_TOURNIMENT_BY_ID);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
+        $stmt->bind_param("i", $id);// Привязка переменных к параметрам подготавливаемого запроса
+        $stmt->execute();//Запускает подготовленный запрос на выполнение
         $result = CatsDatabaseConnectionManager::createArrayFromDBresultObject($stmt->get_result());
         $stmt->close();
         $conn->close();
@@ -64,8 +64,8 @@ class TournamentModel
     {
         $conn = CatsDatabaseConnectionManager::getConnection();
         $stmt = $conn->prepare(GET_ALL_CATS_BY_TOURNAMENT_ID);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
+        $stmt->bind_param("i", $id);// Привязка переменных к параметрам подготавливаемого запроса
+        $stmt->execute();//Запускает подготовленный запрос на выполнение
         $result = CatsDatabaseConnectionManager::createArrayFromDBresultObject($stmt->get_result());
         $stmt->close();
         $conn->close();
@@ -76,8 +76,8 @@ class TournamentModel
     {
         $conn = CatsDatabaseConnectionManager::getConnection();
         $stmt = $conn->prepare(UPDATE_TOURNIMENT);
-        $stmt->bind_param("ssi", $newName, $newDescription, $id);
-        $stmt->execute();
+        $stmt->bind_param("ssi", $newName, $newDescription, $id);//// Привязка переменных к параметрам подготавливаемого запроса
+        $stmt->execute();//Запускает подготовленный запрос на выполнение
         $boolResult = $stmt->get_result();
         $stmt->close();
         $conn->close();

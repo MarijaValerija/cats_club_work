@@ -27,8 +27,8 @@ class OwnerModel
         $md5Hash = md5($password);
         $role = 'USER';
         $stmt = $conn->prepare(ADD_CAT_OWNER);
-        $stmt->bind_param("ssssss", $name, $phone, $personalCode, $username, $md5Hash, $role);
-        $stmt->execute();
+        $stmt->bind_param("ssssss", $name, $phone, $personalCode, $username, $md5Hash, $role);//bp=Привязка переменных к параметрам подготавливаемого запроса
+        $stmt->execute();//e=Запускает подготовленный запрос на выполнение
         $boolResult = $stmt->get_result();
         $stmt->close();
         $conn->close();

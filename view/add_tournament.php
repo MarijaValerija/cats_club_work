@@ -5,7 +5,6 @@ if ($_SESSION['owner_id'] == null) {
 } else {
     echo "<br/><div style='text-align: center;font-size: 44px'>[ Register Cat Owner ]</div>";
     include '../view/menu.php';
-
 }
 ?>
 <html>
@@ -18,7 +17,7 @@ if ($_SESSION['owner_id'] == null) {
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Name..">
 
-        <label for="phone">Description</label>
+        <label for="description">Description</label>
         <textarea id="description" name="description" placeholder="Description..."></textarea>
 
         <input type="submit" value="Submit">

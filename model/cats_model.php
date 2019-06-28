@@ -1,7 +1,7 @@
 <?php
 if ($_SESSION['owner_id'] == null) {
     include '../view/auth_failed.php';
-    die;
+    die; //funkcijai exit ekvivalents
 }
 
 const DELETE_ALL_CATS_BY_CAT_OWNER_ID = "DELETE FROM cats WHERE owner_id = ?";
@@ -19,9 +19,11 @@ class CatModel
     public function deleteAllCatsByOwnerId($id)
     {
         $conn = CatsDatabaseConnectionManager::getConnection();
-        $stmt = $conn->prepare(DELETE_ALL_CATS_BY_CAT_OWNER_ID);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
+        $stmt = $conn->prepare(DELETE_ALL_CATS_BY_CAT_OWNER_ID);//queri-vipolnjajet zapros k baze dannih
+        //stmt=rabota s operatorami bezopasneje chem vstavka peremenih v stroku SQL. Izpoljzuja zajavlenija fja zapreshaju sql injekciju.
+        //prepare=Подготавливает запрос к выполнению и возвращает связанный с этим запросом объект
+        $stmt->bind_param("i", $id);//Привязка переменных к параметрам подготавливаемого запроса...var izmanto php4, php 5 izmanto (public, p.., p..,)
+        $stmt->execute();//zapuskajet podgotovlennij zapros
         $boolResult = $stmt->get_result();
         $stmt->close();
         $conn->close();
@@ -31,9 +33,9 @@ class CatModel
     public function addCat($name, $age, $model, $ownerId)
     {
         $conn = CatsDatabaseConnectionManager::getConnection();
-        $stmt = $conn->prepare(ADD_CAT);
-        $stmt->bind_param("sisi", $name, $age, $model, $ownerId);
-        $stmt->execute();
+        $stmt = $conn->prepare(ADD_CAT);//prepare=Подготавливает запрос к выполнению и возвращает связанный с этим запросом объект
+        $stmt->bind_param("sisi", $name, $age, $model, $ownerId); //Привязка переменных к параметрам подготавливаемого запроса...var izmanto php4
+        $stmt->execute();//zapuskajet podgotovlennij zapros
         $boolResult = $stmt->get_result();
         $stmt->close();
         $conn->close();

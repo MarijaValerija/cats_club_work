@@ -6,7 +6,7 @@ if ($_SESSION['owner_id'] == null) {
     echo "<br/><div style='text-align: center;font-size: 44px'>[ Manage Cats ]</div>";
 
 
-    include '../view/menu.php';
+    include '../view/menu.php'; //Отличия между require() и include() таковы, что require() возвращает FATAL ERROR, если файл не найден, include() же возвращает только WARNING.
     require '../model/owner_model.php';
     require '../model/cats_model.php';
     require '../model/cats_database.php';
@@ -22,14 +22,14 @@ if ($_SESSION['owner_id'] == null) {
         case "add":
             {
                 $arr = array($_POST['name'], $_POST['age'], $_POST['cat_model'], $_POST['owner_id']);
-                if (in_array(null, $arr, true) || in_array("", $arr, true)) {
+                if (in_array(null, $arr, true) || in_array("", $arr, true)) { //ja kkas ir tuksh anketaa tad eror
 
-                    echo "<br/><br/><br/> <fieldset><br/><br/><br/><div style=' text-align: center;vertical-align: middle;font-size: 22px;'>"
+                    echo "<br/><fieldset><br/><div style=' text-align: center;vertical-align: middle;font-size: 22px;'>"
                         . "<b>Wrong params provided || Some fields Are Empty</b>"
-                        . "<a href='../view/add_cat.php'>  [ Back to Cats ]</a></div><br/><br/><br/></fieldset>";
+                        . "<a href='../view/add_cat.php'> [ Back to Cats ]</a></div><br/><br/><br/></fieldset>";
                 } else {
 
-                    $catModel->addCat($_POST['name'], $_POST['age'], $_POST['cat_model'], $_POST['owner_id']);
+                    $catModel->addCat($_POST['name'], $_POST['age'], $_POST['cat_model'], $_POST['owner_id']);//ja viss ir pareizi pieveino veert
 
                     echo "<br/><br/><br/> <fieldset><br/><br/><br/><div style=' text-align: center;vertical-align: middle;font-size: 22px;'>"
                         . "<b>Cat added " . $_POST['name'] . "</b><a href='../view/add_cat.php'>  [ Back to Add Cat ]</a></div><br/><br/><br/></fieldset>";
@@ -39,7 +39,7 @@ if ($_SESSION['owner_id'] == null) {
             }
         case "manage":
         {
-            $cats = $catModel->getAllCatsByOwnerId($_SESSION['owner_id']);
+            $cats = $catModel->getAllCatsByOwnerId($_SESSION['owner_id']);//peec owner id (kursh iegaaja maajaslappa) mees zinam kam pieder kakis
 
             foreach ($cats as $k => $v) {
                 $catId = $cats[$k]['cat_id'];
@@ -59,7 +59,7 @@ if ($_SESSION['owner_id'] == null) {
                     . "[ Back Cat Manage ]</a></div><br/><br/><br/></fieldset>";
                 break;
             }
-        case "reset":
+        case "unrigistered":
             {
                 $tournApplyModel->cancelAllByCatId($_GET['id']);
 

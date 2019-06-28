@@ -4,8 +4,6 @@ if ($_SESSION['owner_id'] == null) {
 }else{
     echo "<br/><div style='text-align: right'> Wellcome, <b>".$_SESSION['name']."</b></div>";
 
-
-    var_dump($_SESSION);
 }
 
 ?>

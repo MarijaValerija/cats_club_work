@@ -17,8 +17,8 @@ class TournApplyModel{
     {
         $conn = CatsDatabaseConnectionManager::getConnection();
         $stmt = $conn->prepare(ADD_TOURN_APPLY);
-        $stmt->bind_param("ss", $catId, $tournimentId);
-        $stmt->execute();
+        $stmt->bind_param("ss", $catId, $tournimentId);//bp=Привязка переменных к параметрам подготавливаемого запроса
+        $stmt->execute();//e=Запускает подготовленный запрос на выполнение
         $boolResult = $stmt->get_result();
         $stmt->close();
         $conn->close();

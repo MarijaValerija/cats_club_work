@@ -5,7 +5,6 @@ if ($_SESSION['owner_id'] == null) {
 } else {
     echo "<br/><div style='text-align: center;font-size: 44px'>[ Add Cat ]</div>";
     include '../view/menu.php';
-
 }
 ?>
 <html>

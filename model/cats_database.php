@@ -2,7 +2,8 @@
 
 class CatsDatabaseConnectionManager {
 
-    public static function getConnection() {
+
+    public static function getConnection() { //static=opredeljajet staticheskie svojstva i metodi
 
         $host = "localhost";
         $username ="root";
@@ -20,7 +21,7 @@ class CatsDatabaseConnectionManager {
         return $conn;
     }
 
-    public static function createArrayFromDBresultObject($resultobj) {
+    public static function createArrayFromDBresultObject($resultobj) { //array=masivs
         if($resultobj->num_rows == 0) {
             return array();
         }

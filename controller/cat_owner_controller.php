@@ -48,8 +48,8 @@ if ($_SESSION['owner_id'] == null) {
                 $catModel->deleteAllCatsByOwnerId($_GET['id']);
                 $ownerModel->deleteCatOwnerById($_GET['id']);
 
-                echo "<br/><br/><br/> <fieldset><br/><br/><br/><div style=' text-align: center;vertical-align: middle;font-size: 22px;'>"
-                    . "<b>Cat Owner with ID Deleted: " . $_GET['id'] . "</b><a href='../controller/cat_owner_controller.php?action=manage'>"
+                echo "<br/><fieldset><br/><div style=' text-align: center;vertical-align: middle;font-size: 22px;'>"
+                    . "<b>Cat Owner Deleted: " . $_GET['id'] . "</b><a href='../controller/cat_owner_controller.php?action=manage'>"
                     . "[ Back to Owner Manage ]</a></div><br/><br/><br/></fieldset>";
                 break;
             }
@@ -57,7 +57,7 @@ if ($_SESSION['owner_id'] == null) {
             {
                 $ownerModel->catOwnerSetDefaultPassword($_GET['id']);
 
-                echo "<br/><br/><br/> <fieldset><br/><br/><br/><div style=' text-align: center;vertical-align: middle;font-size: 22px;'>"
+                echo "<br/> <fieldset><br/><div style=' text-align: center;vertical-align: middle;font-size: 22px;'>"
                     . "<b>Cat Owner reset password to default: " . $_GET['id'] . "</b><a href='../controller/cat_owner_controller.php?action=manage'>"
                     . "[ Back to Owner Manage ]</a></div><br/><br/><br/></fieldset>";
                 break;

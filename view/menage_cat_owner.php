@@ -18,7 +18,7 @@ echo "<br/>";
         <tr>
             <th>Name</th>
             <th>Personal Code</th>
-            <th>username</th>
+            <th>Username</th>
             <th>Cats</th>
             <th>[ Delete ]</th>
             <th>[ Reset Password ]</th>
@@ -27,13 +27,13 @@ echo "<br/>";
 
         if(isset($catOwners)){
             foreach ($catOwners as $k => $v) {
-                if($catOwners[$k]['role'] != 'ADMIN'){
+                if($catOwners[$k]['role'] != 'ADMIN'){//ja lietotaja loma nav admin tad var tikt izdzeest
                     $catsOwnedByOwner = $catOwners[$k]['cat_owned'];
                     $catsInfoString = " ";
 
                     foreach ($catsOwnedByOwner as $c => $j) {
-                        if(isset($catsOwnedByOwner[$c]['name']) && isset($catsOwnedByOwner[$c]['cat_id'])){
-                            $catsInfoString = $catsInfoString  . $catsOwnedByOwner[$c]['name'] .  "  (" . $catsOwnedByOwner[$c]['cat_id'] . ")<br/>";
+                        if(isset($catsOwnedByOwner[$c]['name']) && isset($catsOwnedByOwner[$c]['cat_id'])){//isset=Определяет, была ли установлена переменная значением, отличимым от null
+                            $catsInfoString = $catsInfoString  . $catsOwnedByOwner[$c]['name'] .  " (" . $catsOwnedByOwner[$c]['cat_id'] . ")<br/>";
                         }
                     }
 
